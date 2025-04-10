@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://0dhex5ivjyaf"]
+
+[ext_resource type="Script" path="res://scenes/enemy/static enemy/spike.gd" id="1_ak6bp"]
+[ext_resource type="Texture2D" uid="uid://cqo35tss8dppa" path="res://assets/sprites/enemies/static enemy/1.png" id="1_defyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x8p5"]
+size = Vector2(26, 43)
+
+[node name="Spike" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 517
+script = ExtResource("1_ak6bp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_defyg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, 11, -9, -6, -7, 2, 0, -25, 5, 4, 8, -7, 12, 12, 12, 24, -12, 24)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_4x8p5")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]

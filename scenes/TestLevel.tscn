@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgfdc52tcpd02"]
+
+[ext_resource type="PackedScene" uid="uid://cuk0oolvd88u" path="res://scenes/player/player.tscn" id="1_1qlkt"]
+[ext_resource type="PackedScene" uid="uid://bhttfxvnuekuy" path="res://scenes/object/water/water.tscn" id="1_qp8cy"]
+[ext_resource type="PackedScene" uid="uid://c35qpwkdrnms7" path="res://scenes/enemy/tiger.tscn" id="3_gxbyl"]
+[ext_resource type="PackedScene" uid="uid://0dhex5ivjyaf" path="res://scenes/enemy/static enemy/spike.tscn" id="4_2bg05"]
+[ext_resource type="PackedScene" uid="uid://b3y10wvmjlsbx" path="res://scenes/goal/goal.tscn" id="5_uckkq"]
+[ext_resource type="PackedScene" uid="uid://2pcukjso65g3" path="res://scenes/fruit/fruit.tscn" id="6_kj5bh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uv2g2"]
+
+[node name="TestLevel" type="Node"]
+
+[node name="Water" parent="." instance=ExtResource("1_qp8cy")]
+position = Vector2(1499, 336)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3, 13)
+collision_mask = 544
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(306, 221)
+shape = SubResource("WorldBoundaryShape2D_uv2g2")
+
+[node name="Player" parent="." instance=ExtResource("1_1qlkt")]
+position = Vector2(3703, 180)
+scale = Vector2(7, 7)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 0.285715)
+scale = Vector2(0.142857, 0.142857)
+position_smoothing_enabled = true
+
+[node name="Tiger2" parent="." instance=ExtResource("3_gxbyl")]
+position = Vector2(2084, 188)
+scale = Vector2(1.5, 1.5)
+
+[node name="Tiger" parent="." instance=ExtResource("3_gxbyl")]
+position = Vector2(792, 194)
+scale = Vector2(1.5, 1.5)
+
+[node name="Spike" parent="." instance=ExtResource("4_2bg05")]
+position = Vector2(3010, 159)
+scale = Vector2(1.5, 1.5)
+
+[node name="Goal" parent="." instance=ExtResource("5_uckkq")]
+position = Vector2(2789, 164)
+
+[node name="fruit2" parent="." instance=ExtResource("6_kj5bh")]
+position = Vector2(4205, 193)
+scale = Vector2(2, 2)
+
+[node name="fruit" parent="." instance=ExtResource("6_kj5bh")]
+position = Vector2(4565, 193)
+scale = Vector2(2, 2)
+
+[node name="fruit3" parent="." instance=ExtResource("6_kj5bh")]
+position = Vector2(4914, 186)
+scale = Vector2(2, 2)

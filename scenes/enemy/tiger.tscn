@@ -1,0 +1,138 @@
+[gd_scene load_steps=23 format=3 uid="uid://c35qpwkdrnms7"]
+
+[ext_resource type="Script" path="res://scenes/enemy/tiger.gd" id="1_80711"]
+[ext_resource type="Texture2D" uid="uid://cpt5ecxvb65x5" path="res://assets/sprites/enemies/tiger/tiger attack/0.png" id="2_cx0sm"]
+[ext_resource type="Texture2D" uid="uid://cep3xwblkrarn" path="res://assets/sprites/enemies/tiger/tiger attack/1.png" id="3_s7y6l"]
+[ext_resource type="Texture2D" uid="uid://c3f7lhe4j0aa0" path="res://assets/sprites/enemies/tiger/tiger attack/2.png" id="4_prk7y"]
+[ext_resource type="Texture2D" uid="uid://ba63xyhbo52hg" path="res://assets/sprites/enemies/tiger/tiger die/tiger die.png" id="5_f8y58"]
+[ext_resource type="Texture2D" uid="uid://cxywfpofkefaj" path="res://assets/sprites/enemies/tiger/tiger idle/3.png" id="6_66joa"]
+[ext_resource type="Texture2D" uid="uid://dh80pgd8ijyi4" path="res://assets/sprites/enemies/tiger/tiger run/0.png" id="6_w8us3"]
+[ext_resource type="Texture2D" uid="uid://b6mrnx4vd5edu" path="res://assets/sprites/enemies/tiger/tiger run/1.png" id="7_s8jle"]
+[ext_resource type="Texture2D" uid="uid://b6u0awerk8oas" path="res://assets/sprites/enemies/tiger/tiger run/2.png" id="8_8ex0v"]
+[ext_resource type="Texture2D" uid="uid://crlu3odguowtb" path="res://assets/sprites/enemies/tiger/tiger run/3.png" id="9_u5ynt"]
+[ext_resource type="Texture2D" uid="uid://m15dpl0r24nq" path="res://assets/sprites/enemies/tiger/tiger petrol/0.png" id="10_sv3cb"]
+[ext_resource type="Texture2D" uid="uid://bmkfc481ruvw4" path="res://assets/sprites/enemies/tiger/tiger petrol/1.png" id="11_5urcm"]
+[ext_resource type="Texture2D" uid="uid://ggml7alcsi8n" path="res://assets/sprites/enemies/tiger/tiger petrol/2.png" id="12_gasth"]
+[ext_resource type="Texture2D" uid="uid://cj86hwvgm3ae7" path="res://assets/sprites/enemies/tiger/tiger petrol/3.png" id="13_taynt"]
+[ext_resource type="Texture2D" uid="uid://da2x4kekvj8pl" path="res://assets/sprites/enemies/tiger/tiger petrol/4.png" id="14_itkcd"]
+[ext_resource type="Texture2D" uid="uid://wck5e43vpaj" path="res://assets/sprites/enemies/tiger/tiger petrol/5.png" id="15_xeexf"]
+[ext_resource type="Texture2D" uid="uid://dvfni3tva87at" path="res://assets/sprites/enemies/tiger/tiger petrol/6.png" id="16_tumkp"]
+[ext_resource type="Texture2D" uid="uid://mmnkli5hhxp" path="res://assets/sprites/enemies/tiger/tiger petrol/7.png" id="17_4wio2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxjx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cx0sm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7y6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_prk7y")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f8y58")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_66joa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w8us3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s8jle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8ex0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u5ynt")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_sv3cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5urcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gasth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_taynt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_itkcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xeexf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_tumkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4wio2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je4ac"]
+size = Vector2(80, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joapf"]
+size = Vector2(396, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cimnv"]
+size = Vector2(100, 36)
+
+[node name="Tiger" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 32
+collision_mask = 513
+script = ExtResource("1_80711")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rxjx5")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_je4ac")
+
+[node name="PatrolArea" type="Node2D" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_joapf")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_cimnv")

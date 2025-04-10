@@ -1,0 +1,197 @@
+[gd_scene load_steps=28 format=3 uid="uid://cuk0oolvd88u"]
+
+[ext_resource type="Texture2D" uid="uid://b6tctvuaq2owq" path="res://assets/sprites/player/attack/1.png" id="1_es26p"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_iqed1"]
+[ext_resource type="Texture2D" uid="uid://sd8l43wehvyx" path="res://assets/sprites/player/die/0.png" id="2_ow61r"]
+[ext_resource type="Texture2D" uid="uid://du5tgs3vd7eap" path="res://assets/sprites/player/idle/0.png" id="3_2d8yp"]
+[ext_resource type="Texture2D" uid="uid://c2scwved438fv" path="res://assets/sprites/player/idle/1.png" id="4_nxhhv"]
+[ext_resource type="Texture2D" uid="uid://tk6q2jdae1g2" path="res://assets/sprites/player/idle/2.png" id="5_k1kau"]
+[ext_resource type="Texture2D" uid="uid://beyvedespq5ux" path="res://assets/sprites/player/idle/3.png" id="6_u12kq"]
+[ext_resource type="Texture2D" uid="uid://bx8pangvks2p4" path="res://assets/sprites/player/idle_swim/0.png" id="7_qrpm8"]
+[ext_resource type="Texture2D" uid="uid://heg4r6jyk7r" path="res://assets/sprites/player/idle_swim/1.png" id="8_6x4e6"]
+[ext_resource type="Texture2D" uid="uid://dcjqn8cllb6ms" path="res://assets/sprites/player/idle_swim/3.png" id="9_prr4r"]
+[ext_resource type="Texture2D" uid="uid://ci3qgxc06hxv4" path="res://assets/sprites/player/jump/3.png" id="10_3iyif"]
+[ext_resource type="Texture2D" uid="uid://iajsbkfn0w8c" path="res://assets/sprites/player/run/0.png" id="11_natad"]
+[ext_resource type="Texture2D" uid="uid://c7tc8wsnrq5xm" path="res://assets/sprites/player/run/1.png" id="12_is6y2"]
+[ext_resource type="Texture2D" uid="uid://d357083r6w78g" path="res://assets/sprites/player/run/2.png" id="13_uqmgb"]
+[ext_resource type="Texture2D" uid="uid://bl7so8fuur6q5" path="res://assets/sprites/player/run/3.png" id="14_4v2ae"]
+[ext_resource type="Texture2D" uid="uid://dv0dopu1kgr11" path="res://assets/sprites/player/run/4.png" id="15_5q3ox"]
+[ext_resource type="Texture2D" uid="uid://bjcv26h8xkmxx" path="res://assets/sprites/player/run/5.png" id="16_67hhb"]
+[ext_resource type="Texture2D" uid="uid://b8jysy5xh8dig" path="res://assets/sprites/player/run/6.png" id="17_b7duc"]
+[ext_resource type="Texture2D" uid="uid://nva1tytw4n4c" path="res://assets/sprites/player/run/7.png" id="18_hveep"]
+[ext_resource type="Texture2D" uid="uid://cgxfy51m0vpxj" path="res://assets/sprites/player/swim/0.1.png" id="19_rhdho"]
+[ext_resource type="Texture2D" uid="uid://nwl33rge47k5" path="res://assets/sprites/player/swim/1.1.png" id="20_aru6m"]
+[ext_resource type="Texture2D" uid="uid://4ll8na40x6wo" path="res://assets/sprites/player/swim/2.1.png" id="21_anshg"]
+[ext_resource type="Texture2D" uid="uid://bpcudd4am24m8" path="res://assets/sprites/player/swim/3.1.png" id="22_fw41k"]
+[ext_resource type="Texture2D" uid="uid://dqw8yse1cx0r0" path="res://assets/sprites/player/swim/4.1.png" id="23_7opqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rrpk"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_es26p")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ow61r")
+}],
+"loop": true,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2d8yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nxhhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1kau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2d8yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1kau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u12kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1kau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2d8yp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qrpm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6x4e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrpm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_prr4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6x4e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrpm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qrpm8")
+}],
+"loop": true,
+"name": &"idle_swim",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3iyif")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_natad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_is6y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uqmgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4v2ae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5q3ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_67hhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_b7duc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hveep")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_rhdho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_aru6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_anshg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fw41k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7opqk")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w266e"]
+size = Vector2(9, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0n8r"]
+size = Vector2(11, 14)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 512
+collision_mask = 381
+script = ExtResource("1_iqed1")
+speed = null
+jump_velocity = null
+swim_speed_horizontal = null
+swim_speed_vertical = null
+water_gravity_scale = null
+attack_duration = null
+deceleration_factor = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.52841)
+scale = Vector2(1, 0.923822)
+sprite_frames = SubResource("SpriteFrames_7rrpk")
+animation = &"idle"
+autoplay = "idle"
+frame = 6
+frame_progress = 0.738228
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 512
+visibility_layer = 510
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_w266e")
+
+[node name="WaterDetector" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterDetector"]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_i0n8r")

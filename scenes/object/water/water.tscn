@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhttfxvnuekuy"]
+
+[ext_resource type="Texture2D" uid="uid://xeb4j5y80r6x" path="res://assets/sprites/objects/water/0.PNG" id="1_b8j60"]
+[ext_resource type="Texture2D" uid="uid://c0jkv4tkp5fn4" path="res://assets/sprites/objects/water/1.PNG" id="2_6x535"]
+[ext_resource type="Texture2D" uid="uid://cj5tav1of2q8k" path="res://assets/sprites/objects/water/2.PNG" id="3_216xl"]
+[ext_resource type="Script" path="res://scenes/object/water/water_area.gd" id="4_xfbty"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7j5jw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b8j60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6x535")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_216xl")
+}],
+"loop": true,
+"name": &"water_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25clc"]
+size = Vector2(382, 238)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8srg6"]
+size = Vector2(384, 67)
+
+[node name="Water" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7j5jw")
+animation = &"water_idle"
+autoplay = "water_idle"
+frame_progress = 0.252023
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_25clc")
+
+[node name="WaterArea" type="Area2D" parent="." groups=["water_collision"]]
+collision_layer = 16
+collision_mask = 512
+script = ExtResource("4_xfbty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
+position = Vector2(0, -104.5)
+shape = SubResource("RectangleShape2D_8srg6")
+
+[connection signal="body_entered" from="WaterArea" to="WaterArea" method="_on_body_entered"]
+[connection signal="body_exited" from="WaterArea" to="WaterArea" method="_on_body_exited"]
