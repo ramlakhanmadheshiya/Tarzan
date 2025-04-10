@@ -4,3 +4,5 @@ tiger is ready: patrol attack die
 spear is ready: can kill tiger
 water is ready
 spike is ready
+fruit is ready
+goal is ready
